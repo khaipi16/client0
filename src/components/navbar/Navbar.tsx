@@ -8,7 +8,7 @@ export const Navbar = () => {
     const {userData, setUserData} = useContext(UserContext) as UserContextType;
 
     useEffect(() => {
-        fetch('http://localhost:4000/profile', {
+        fetch('https://adayinthelife.onrender.com/profile', {
             credentials: 'include',
         }).then(response => {
             response.json().then(userInfo => {
@@ -18,7 +18,7 @@ export const Navbar = () => {
     }, []);
 
     const logout = () => {
-        fetch('http://localhost:4000/logout', {
+        fetch('https://adayinthelife.onrender.com/logout', {
             credentials: 'include',
             method: 'POST'
         });

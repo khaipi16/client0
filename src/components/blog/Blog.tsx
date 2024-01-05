@@ -34,7 +34,7 @@ export const Blog = () => {
             data.append('file', file)
         }
         try{
-            const response = await fetch('http://localhost:4000/write', {
+            const response = await fetch('https://adayinthelife.onrender.com/write', {
                 method: 'POST',
                 body: data,
                 credentials: 'include'

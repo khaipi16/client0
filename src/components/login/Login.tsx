@@ -11,7 +11,7 @@ export const Login = () => {
 
     const handleLogin = async (ev: React.FormEvent) => {
         ev.preventDefault();
-        const isAuthenticated = await fetch('http://localhost:4000/login', {
+        const isAuthenticated = await fetch('https://adayinthelife.onrender.com/login', {
             method: 'POST',
             body: JSON.stringify({username, password}),
             headers: {'Content-Type': 'application/json'},
