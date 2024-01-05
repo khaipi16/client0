@@ -1,0 +1,47 @@
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+
+form.login {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 2px;
+    
+}
+
+/* .register-link {
+    color: black;
+    align-items: center;
+    display: inline-block;
+    text-decoration: none;
+} */
+
+.register-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+.login-container {
+    display: flex;
+}
+
+.message-container {
+    margin-right: 5px;
+}

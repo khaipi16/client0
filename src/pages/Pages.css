@@ -1,0 +1,149 @@
+
+
+
+/* SingleBlog.css */
+
+.single-blog {
+    padding: 16px;
+    margin-top: 5%;
+    background-color: #f7f7f8;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(9, 2, 1, 10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: rgb(214, 37, 37);
+  }
+  
+  .author-date {
+    display: flex;
+    align-items: center;
+
+  }
+  
+  .author,
+  .date {
+    margin-right: 16px;
+  }
+
+  .separator {
+      margin: 0px 10px;
+  }
+  
+  .content {
+    font-size: 16px;
+    /* line-height: 45vh; */
+  }
+
+  .content-text {
+      margin-bottom: 35%;
+  }
+
+
+  /*
+    Home 
+  */
+
+/* .home {
+  padding: 20px;
+  margin: 20px;
+}
+
+.header-box {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.date {
+  color: #888;
+}
+
+.content-text {
+  margin-top: 20px;
+} */
+
+  
+
+/* styles.css */
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr .75fr;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  margin: 20px;
+}
+
+.profile {
+  /* align-items: center; */
+  /* justify-content: flex-end; */
+  gap: 20px;
+}
+
+.profile-image {
+  /* max-width: 30%;
+  border-radius: 50%;
+  overflow: hidden; */
+
+  max-width: 20%;
+  max-height: 40%;
+  width: 20%;
+  height: 30%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-info {
+  flex: 1;  
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.date {
+  color: #888;
+}
+
+.recent-blogs {
+  margin-top: 20px;
+}
+
+.content-text {
+  margin-top: 20px;
+  /* display: flex; */
+}
