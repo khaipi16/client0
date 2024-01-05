@@ -14,7 +14,7 @@ export const Home = () => {
   });
 
   useEffect(() => {
-    fetch('http://localhost:4000/latest-blog')
+    fetch('https://adayinthelife.onrender.com/latest-blog')
       .then(response => response.json())
       .then(jsonData => {
         setBlogData(jsonData);

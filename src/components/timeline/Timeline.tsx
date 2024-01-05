@@ -75,7 +75,7 @@ export const Timeline = () => {
 
     useEffect(() => {
         // Fetch data from server
-        fetch('http://localhost:4000/get-blogs')
+        fetch('https://adayinthelife.onrender.com/get-blogs')
         .then(blogData => { blogData.json()
             .then((jsonBlog: Blog[]) => { // Converts it into json format
                 console.log("blogData 1: ", blogData);

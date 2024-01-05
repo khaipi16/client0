@@ -19,7 +19,7 @@ export const SingleBlog = () => {
     console.log("id: ", id);
     
     useEffect(() => {
-        fetch(`http://localhost:4000/get-blogs/${id}`)
+        fetch(`https://adayinthelife.onrender.com/get-blogs/${id}`)
         .then(blogData => {
             blogData.json()
             .then(jsonData => {
