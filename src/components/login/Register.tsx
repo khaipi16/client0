@@ -10,7 +10,7 @@ export const Register = () => {
         ev.preventDefault();
 
         try {
-            const response = await fetch('https://adayinthelife.onrender.com/register', {
+            const response = await fetch('https://khai-blog-api.vercel.app/register', {
                 method: 'POST',
                 body: JSON.stringify({ username, password }),
                 headers: { 'Content-Type': 'application/json' },

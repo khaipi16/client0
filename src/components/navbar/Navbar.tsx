@@ -8,7 +8,7 @@ export const Navbar = () => {
     const {userData, setUserData} = useContext(UserContext) as UserContextType;
 
     useEffect(() => {
-        fetch('https://adayinthelife.onrender.com/profile', {
+        fetch('https://khai-blog-api.vercel.app/profile', {
             credentials: 'include',
         }).then(response => {
             response.json().then(userInfo => {
@@ -18,7 +18,7 @@ export const Navbar = () => {
     }, []);
 
     const logout = () => {
-        fetch('https://adayinthelife.onrender.com/logout', {
+        fetch('https://khai-blog-api.vercel.app/logout', {
             credentials: 'include',
             method: 'POST'
         });
