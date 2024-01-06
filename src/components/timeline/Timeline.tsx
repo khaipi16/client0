@@ -75,7 +75,7 @@ export const Timeline = () => {
 
     useEffect(() => {
         // Fetch data from server
-        fetch('https://adayinthelife.onrender.com/get-blogs')
+        fetch('https://khai-blog-api.vercel.app/get-blogs')
         .then(blogData => { blogData.json()
             .then((jsonBlog: Blog[]) => { // Converts it into json format
                 console.log("blogData 1: ", blogData);
@@ -148,57 +148,3 @@ export const Timeline = () => {
         </div>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export const Timeline: React.FC = () => {
-//     return (
-//         <div className="container mt-4">
-//         <h1 className="mb-4">Blog Timeline</h1>
-//         <Year year="2015">
-//           <Month month="January">
-//             <p>
-//               title="Blog Post 1"
-//               author="Author 1"
-//               date="January 1, 2015"
-//               content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-//             </p>
-//             <p>
-//               title="Blog Post 2"
-//               author="Author 2"
-//               date="January 15, 2015"
-//               content="Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-//             </p>
-//           </Month>
-//           <Month month="February">
-//             <p>
-//               title="Blog Post 3"
-//               author="Author 3"
-//               date="February 5, 2015"
-//               content="Ut enim ad minim veniam, quis nostrud exercitation ullamco."
-//             </p>
-//             <p>
-//               title="Blog Post 4"
-//               author="Author 4"
-//               date="February 20, 2015"
-//               content="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-//             </p>
-//           </Month>
-//           {/* Add more months for 2015 */}
-//         </Year>
-//         {/* Add more years */}
-//       </div>
-//     );
-// };

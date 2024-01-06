@@ -19,7 +19,7 @@ export const SingleBlog = () => {
     console.log("id: ", id);
     
     useEffect(() => {
-        fetch(`https://adayinthelife.onrender.com/get-blogs/${id}`)
+        fetch(`https://khai-blog-api.vercel.app/get-blogs/${id}`)
         .then(blogData => {
             blogData.json()
             .then(jsonData => {

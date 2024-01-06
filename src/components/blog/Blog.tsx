@@ -34,7 +34,7 @@ export const Blog = () => {
             data.append('file', file)
         }
         try{
-            const response = await fetch('https://adayinthelife.onrender.com/write', {
+            const response = await fetch('https://khai-blog-api.vercel.app/write', {
                 method: 'POST',
                 body: data,
                 credentials: 'include'

@@ -11,7 +11,7 @@ export const Login = () => {
 
     const handleLogin = async (ev: React.FormEvent) => {
         ev.preventDefault();
-        const isAuthenticated = await fetch('https://adayinthelife.onrender.com/login', {
+        const isAuthenticated = await fetch('https://khai-blog-api.vercel.app/login', {
             method: 'POST',
             body: JSON.stringify({username, password}),
             headers: {'Content-Type': 'application/json'},
@@ -35,15 +35,6 @@ export const Login = () => {
 
 
     return (
-        // <div className="content">
-        //     <form action="login">
-        //         <input type="text" placeholder="Username"></input>
-        //         <input type="text" placeholder="Password"></input>
-        //         <button type="button">Login</button>
-        //     </form>
-        // </div>
-
-
         <div className="content">
             <div className="container">
                 <div className="row">

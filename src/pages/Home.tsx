@@ -14,7 +14,7 @@ export const Home = () => {
   });
 
   useEffect(() => {
-    fetch('https://adayinthelife.onrender.com/latest-blog')
+    fetch('https://khai-blog-api.vercel.app/latest-blog')
       .then(response => response.json())
       .then(jsonData => {
         setBlogData(jsonData);
