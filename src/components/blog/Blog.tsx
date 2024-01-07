@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import { Navigate, redirect } from 'react-router-dom';
+import { UserContext, UserContextType } from '../../UserContext';
 
 export const Blog = () => {
     const [title, setTitle] = useState('');
@@ -10,6 +11,7 @@ export const Blog = () => {
     const [content, setContent] = useState('');
     const [fieldRequired, setFieldRequired] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const {userData, setUserData} = useContext(UserContext) as UserContextType;
 
     const writeNewBlog = async (ev: React.FormEvent) => {
         ev.preventDefault();
@@ -33,15 +35,18 @@ export const Blog = () => {
                 },
                 body: JSON.stringify(data),
                 credentials: 'include'
-            });
-            if (response.ok) {
-                alert("Successfully posted!");
-                setRedirect(true)
+            }).then(response => {
+                response.json().then(userInfo => {
+                    setUserData(userInfo)
+                    if (response.ok) {
+                        alert("Successfully posted!");
+                        setRedirect(true)
+                    }
+                    else {
+                        alert("Failed to post :(")
+                    }
+                })});
             }
-            else {
-                alert("Failed to post :(")
-            }
-        }
         catch (ex) {
             console.error('Error: ', ex);
         }
