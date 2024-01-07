@@ -44,13 +44,16 @@ export const Timeline = () => {
         // console.log("blogData 1: ", blogData);
 
         blogData.forEach((blog) => {
-            console.log("blog.date: ", blog.date)
-            // const date = new Date(blog.date);
+            const dateString= (blog.date); // Get the date string
+            console.log("dateString: ", dateString)
 
-            const date = new Date(blog.date.replace(/-/g, '\/').replace(/T.+/, ''));
+            // Guard clause to handle undefined or unexpected date format
+            if (!dateString || !/\d{4}-\d{2}-\d{2}/.test(dateString)) {
+              console.error('Invalid date format or undefined date:', dateString);
+              return; // Skip processing this blog entry
+            }
+            const date = new Date(dateString)
 
-            console.log("date: ", date)
-            // date.setMonth(date.getMonth() - 1);
 
             const year = date.getFullYear().toString();
 
