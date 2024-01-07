@@ -3,13 +3,11 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import { Navigate, redirect } from 'react-router-dom';
 
-
 export const Blog = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [date, setDate] = useState('');
     const [content, setContent] = useState('');
-    const [file, setFile] = useState<File | null>(null);
     const [fieldRequired, setFieldRequired] = useState('');
     const [redirect, setRedirect] = useState(false);
 
@@ -21,25 +19,21 @@ export const Blog = () => {
              setFieldRequired("Field is required");
              return;
         }
-
-
-        const data = new FormData();
-        data.set('title', title);
-        data.set('author', author);
-        data.set('date', date);
-        data.set('content', content);
-
-        // Check if file is not null before appending
-        if (file) {
-            data.append('file', file)
-        }
+        const data = {
+            title,
+            author,
+            date,
+            content,
+        };
         try{
             const response = await fetch('https://khai-blog-api.vercel.app/write', {
                 method: 'POST',
-                body: data,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
                 credentials: 'include'
             });
-            console.log("blog res: ", response.json())
             if (response.ok) {
                 alert("Successfully posted!");
                 setRedirect(true)
@@ -52,7 +46,7 @@ export const Blog = () => {
             console.error('Error: ', ex);
         }
     }
-
+    
     if (redirect) {
         return <Navigate to={'/'} />
     }
@@ -76,11 +70,7 @@ export const Blog = () => {
                             onChange={ev => setAuthor(ev.target.value)}/>
                     </div>
                 </div>
-                <div className="form-group col-md-6"> {/* col-md adjusts the horizontal size */}
-                    <input type="file" className="form-control"
-                    onChange={ev => setFile(ev.target.files ? ev.target.files[0] : null)}/>
-                </div>
-                <div className="form-group">
+                <div className="form-group col-md-6">
                     <input type="date" className="form-control" id="date" 
                     value={date}
                     required
