@@ -17,11 +17,20 @@ export const Login = () => {
             headers: {'Content-Type': 'application/json'},
             credentials: 'include',
         });
+        // const isAuthenticated = await fetch('http://localhost:4000/login', {
+        //     method: 'POST',
+        //     body: JSON.stringify({username, password}),
+        //     headers: {'Content-Type': 'application/json'},
+        //     credentials: 'include',
+        // });
         if (isAuthenticated.ok) {
-            isAuthenticated.json().then(userInfo => {
-                setUserData(userInfo);
-                setRedirect(true);
-            })
+            const userInfo = await isAuthenticated.json();
+            setUserData(userInfo)
+            setRedirect(true)
+            // isAuthenticated.json().then(userInfo => {
+            //     setUserData(userInfo);
+            //     setRedirect(true);
+            // })
         }
         else {
             alert("Wrong username or password.")
