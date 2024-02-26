@@ -27,6 +27,8 @@ export const Blog = () => {
             date,
             content,
         };
+        // https://khai-blog-api.vercel.app/write
+        // http://localhost:4000/write
         try{
             const response = await fetch('https://khai-blog-api.vercel.app/write', {
                 method: 'POST',
@@ -36,6 +38,7 @@ export const Blog = () => {
                 body: JSON.stringify(data),
                 credentials: 'include'
             }).then(response => {
+                console.log("response: ", response)
                 response.json().then(userInfo => {
                     setUserData(userInfo)
                     if (response.ok) {
