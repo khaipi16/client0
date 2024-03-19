@@ -29,11 +29,16 @@ export const Blog = () => {
         };
         // https://khai-blog-api.vercel.app/write
         // http://localhost:4000/write
+        // console.log('TOKEN: ', token)
         try{
+            const token = localStorage.getItem('token')
+            console.log('FRONT-TOKEN: ', token)
+
             const response = await fetch('https://khai-blog-api.vercel.app/write', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(data),
                 credentials: 'include'
