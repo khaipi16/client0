@@ -27,7 +27,8 @@ export const customDateFormat = (date) => {
     };
 
     // specifying english/US for lanuage/Timezone, and to include dateFields attributes and format in UTC
+    // console.log("date: ", date)
     const formattedDate = new Date(date).toLocaleDateString('en-US', { ...dateFields, timeZone: 'UTC' });
-    console.log(formattedDate);
+    // console.log("Format.js: ", formattedDate);
     return formattedDate;
 }

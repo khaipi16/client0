@@ -33,6 +33,7 @@ export const Blog = () => {
         try{
             const token = localStorage.getItem('token')
             console.log('FRONT-TOKEN: ', token)
+            console.log('Request Headers: ', new Headers())
 
             const response = await fetch('https://khai-blog-api.vercel.app/write', {
                 method: 'POST',
