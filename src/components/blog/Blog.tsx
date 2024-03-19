@@ -52,7 +52,9 @@ export const Blog = () => {
                         setRedirect(true)
                     }
                     else {
-                        alert("Failed to post :(")
+                        console.log('2. FRONT-TOKEN: ', token)
+                        console.log('2. Request Headers: ', new Headers())
+                        alert("Failed to post zaskdjlfasdjkfhjkasdfkljahjklsdf:(")
                     }
                 })});
             }
