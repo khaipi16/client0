@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Navigate, NavLink } from 'react-router-dom';
 import { UserContext, UserContextType } from '../../UserContext';
 import "./Login.css"
+import { userInfo } from 'os';
 
 export const Login = () => {
     const [username, setUsername] = useState('');
@@ -10,8 +11,6 @@ export const Login = () => {
     const {setUserData} = useContext(UserContext) as UserContextType;
 
     const handleLogin = async (ev: React.FormEvent) => {
-        console.log('do we get here 1')
-
         ev.preventDefault();
         const isAuthenticated = await fetch('https://khai-blog-api.vercel.app/login', {
             method: 'POST',
@@ -19,8 +18,6 @@ export const Login = () => {
             headers: {'Content-Type': 'application/json'},
             credentials: 'include',
         });
-        console.log('do we get here 2')
-
         // const isAuthenticated = await fetch('http://localhost:4000/login', {
         //     method: 'POST',
         //     body: JSON.stringify({username, password}),
@@ -28,9 +25,10 @@ export const Login = () => {
         //     credentials: 'include',
         // });
         if (isAuthenticated.ok) {
-            console.log('do we get here 3')
             const userInfo = await isAuthenticated.json();
-            console.log('do we get here 4')
+            const authToken = userInfo.token
+            localStorage.setItem('token', authToken)
+            console.log('LOGIN TOKEN: ', authToken)
             setUserData(userInfo)
             setRedirect(true)
             console.log('userInfo', userInfo)
